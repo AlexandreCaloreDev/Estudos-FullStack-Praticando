@@ -34,10 +34,9 @@ async function salvarDados(estrutura: EmployeeRecord[]): Promise<EmployeeRecord[
     contador++
 
     encerrarQuestionamentos = (await leitura.question("Deseja encerrar os lançamentos? (S/N)")).toUpperCase() as Loop
-  } while (encerrarQuestionamentos === "N") {
+  } while (encerrarQuestionamentos === "N")
     return estrutura
   }
-}
 
 
 async function leituraDados(): Promise<EmployeeRecord[]> {

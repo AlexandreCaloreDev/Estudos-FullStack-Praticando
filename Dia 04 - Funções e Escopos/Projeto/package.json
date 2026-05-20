@@ -1,0 +1,17 @@
+{
+  "name": "funcoes",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "dependencies": {
+    "@types/node": "^25.9.1",
+    "node": "^22.22.3",
+    "typescript": "^6.0.3"
+  }
+}

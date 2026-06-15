@@ -1,7 +1,6 @@
 import {Funcionario} from "./funcionario";
 
 export class Gerente extends Funcionario { 
-
   constructor(
     nome        : string,
     cargo       : string,

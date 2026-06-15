@@ -1,18 +1,16 @@
 import {Funcionario} from "./funcionario"
 
-class Desenvolvedor extends Funcionario {
+export class Desenvolvedor extends Funcionario {
   constructor(
-    public nome        : string,
-    public cargo       : string, 
-    public documento   : string,
-    public salarioBase : number,
-    public bonusFixo   : number
-  ){super(nome, cargo, documento, salarioBase),
-    this.bonusFixo = bonusFixo
+    nome        : string,
+    cargo       : string, 
+    documento   : string,
+    salarioBase : number,
+    private bonusFixo   : number
+  ){super(nome, cargo, documento, salarioBase)
   }
- 
   calcularRenda() : number {
-    return this.salarioBase + this.bonusFixo
+    return this.salarioBase + (this.salarioBase * this.bonusFixo)
   }
   
 }

@@ -22,6 +22,8 @@
  */
 import * as readline from "readline/promises";
 import { stdin as input, stdout as output } from "node:process";
+const IDADE_LEGAL = 18;
+const ID_ESTAGIO = 1;
 let tipoCargo;
 tipoCargo = [
     { id: 1, nomeCargo: "Estagiario" },
@@ -41,10 +43,7 @@ async function dadosIniciais() {
     codigoCargo = parseInt(await resposta.question("id do cargo: "));
 }
 async function verificaUsuario(idade, cargo) {
-    const idadeLegal = 18;
-    const estagio = 1;
-    console.log(`Debug ${idade}, ${cargo}`);
-    if (idade < idadeLegal && cargo !== estagio) {
+    if (idade < IDADE_LEGAL && cargo !== ID_ESTAGIO) {
         throw new Error("Erro de consistência contratual");
     }
 }

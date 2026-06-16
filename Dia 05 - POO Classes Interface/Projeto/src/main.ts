@@ -1,7 +1,7 @@
-import { Desenvolvedor } from "./models/desenvolvedor";
-import { Funcionario } from "./models/funcionario";
-import { Gerente } from "./models/gerente";
-import { FolhaDePagamento } from "./service/FolhaDePagamento";
+import { Desenvolvedor } from "./models/desenvolvedor.js";
+import { Funcionario } from "./models/funcionario.js";
+import { Gerente } from "./models/gerente.js";
+import { FolhaDePagamento } from "./service/FolhaDePagamento.js";
 
 const alex    = new Desenvolvedor(
     'Alex da Silva',

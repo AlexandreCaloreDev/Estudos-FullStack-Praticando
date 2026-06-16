@@ -10,8 +10,10 @@
     "test": "npm test"
   },
   "dependencies": {
-    "@types/node": "^25.9.1",
     "node": "^22.22.3",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3"
   }
 }

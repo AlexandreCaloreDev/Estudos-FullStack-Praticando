@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Escopo: Algoritmo de Processamento em Lote de Folha de Pagamento. Você criará um script que simula a leitura de 50 registros de horas trabalhadas e aplica regras de negócio repetitivas
  
@@ -15,37 +14,36 @@ Regra de Negócio Interna: Dentro do loop, calcule salarioBase = horasTrabalhada
 
 Acumulação e Log: Some o valor calculado ao custoTotalFolha e imprima o status do ID atual.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-var crypto_1 = require("crypto");
-var custoTotalFolha = 0;
-var TOTAL_DE_REGISTROS = 50;
-var MAXIMO_HORAS_TRABALHADAS = 160;
-var folhaPonto = [];
+import { randomInt } from "crypto";
+let custoTotalFolha = 0;
+const TOTAL_DE_REGISTROS = 50;
+const MAXIMO_HORAS_TRABALHADAS = 160;
+const folhaPonto = [];
 function populaArray() {
-    for (var i = 0; i < TOTAL_DE_REGISTROS; i++) {
-        folhaPonto.push({ id: i + 1, horasTrabalhadas: (0, crypto_1.randomInt)(240), valorHora: (0, crypto_1.randomInt)(5, 50) });
+    for (let i = 0; i < TOTAL_DE_REGISTROS; i++) {
+        folhaPonto.push({ id: i + 1, horasTrabalhadas: randomInt(240), valorHora: randomInt(5, 50) });
     }
 }
 function calculaValorFolha() {
-    var contador = 0;
-    var salarioBase = 0;
-    var custoTotalFolha = 0;
+    let contador = 0;
+    let salarioBase = 0;
+    let custoTotalFolha = 0;
     while (contador < folhaPonto.length) {
-        var registroAtual = folhaPonto[contador];
+        let registroAtual = folhaPonto[contador];
         if (registroAtual.horasTrabalhadas <= MAXIMO_HORAS_TRABALHADAS) {
             salarioBase = registroAtual.horasTrabalhadas * registroAtual.valorHora;
         }
         else {
-            var valorExcedente = 0;
+            let valorExcedente = 0;
             valorExcedente = registroAtual.horasTrabalhadas - MAXIMO_HORAS_TRABALHADAS;
             salarioBase = (registroAtual.horasTrabalhadas * registroAtual.valorHora) + ((valorExcedente * registroAtual.valorHora) * 0.5);
         }
         custoTotalFolha = custoTotalFolha + salarioBase;
-        console.log("ID ".concat(registroAtual.id, ": \n horas=").concat(registroAtual.horasTrabalhadas, ",\n valorHora=").concat(registroAtual.valorHora, ",\n salarioBase=").concat(salarioBase.toFixed(2)));
+        console.log(`ID ${registroAtual.id}: \n horas=${registroAtual.horasTrabalhadas},\n valorHora=${registroAtual.valorHora},\n salarioBase=${salarioBase.toFixed(2)}`);
         salarioBase = 0;
         contador++;
     }
-    console.log("\n custoTotalFolha=".concat(custoTotalFolha.toFixed(2)));
+    console.log(`\n custoTotalFolha=${custoTotalFolha.toFixed(2)}`);
 }
 function main() {
     populaArray();

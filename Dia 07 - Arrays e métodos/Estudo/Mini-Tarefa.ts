@@ -3,9 +3,7 @@
 
 const numbers  : number [] = [1,2,3,4,5,6,7] 
 
-for (let i = 0; i < numbers.length; i++) {
-    const n = array[i];
-    
-}
+const numbersFormatted : string[] = numbers
+.filter((num) => num % 2 === 0 ).map((num) =>`Número ${num}`)
 
-
+console.log(numbersFormatted);
